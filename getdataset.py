@@ -39,7 +39,7 @@ class GetDataset:
     try:
       clip=mp.VideoFileClip(vid_path)
       frameName=vid_path[vid_path.find("/")+1:-4]
-      imgarray = clip.get_frame(1)
+      imgarray = clip.get_frame(2)
       data = Image.fromarray(imgarray) 
       data.save(self.PhotoFolder+"/"+frameName+".png")
       clip.close()
@@ -98,9 +98,9 @@ class GetDataset:
       else:
            startpos=0
         
-      endpos=self.Batch
+      endpos=startpos+self.Batch
       numberconverted=0
-      startpos=0
+      #startpos=0
       
       #for i in range(len(train_set)):
       for i in range(startpos,endpos):
@@ -153,7 +153,7 @@ class GetDataset:
           pass
 
         
-        if (numberconverted == 5):  # number of videos to download and convert every single run
+        if (numberconverted == self.Batch):  # number of videos to download and convert every single run
           with open ('stopPos.txt','w') as stop:
               stop.write(str(startpos+numberconverted))
               break   
@@ -209,5 +209,8 @@ x.setDatasetCSV("avspeech_train.csv")
 x.setAudioOutputFolder("audios")
 x.setPhotoOutputFolder("photos")
 x.convertVideos()
+
+
+
 
 
