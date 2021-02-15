@@ -1,3 +1,7 @@
+!pip install youtube_dl
+!pip install ffmpeg-python 
+!pip install moviepy --upgrade
+
 import os
 from sys import stdout
 import moviepy.editor as mp
@@ -14,15 +18,18 @@ class GetDataset:
   AudioFolder = ""
   PhotoFolder = ""
   VideoFolder = "videos"
+  Batch=1
     
   def extractAudio(self,vid_path): #extract audio from a video
     try:
       clip=mp.VideoFileClip(vid_path)
+      frameName=vid_path[vid_path.find("/")+1:-4]
       audioName=vid_path[vid_path.find("/")+1:-4]
       outputPath = self.AudioFolder+"/"+audioName+".wav"   
-      clip.audio.write_audiofile(outputPath,logger=None)
+      clip.audio.write_audiofile(outputPath, logger=None)
       clip.close()
-    except:
+    except Exception as e:
+      print(e)
       clip.close()
       with open ("errorAudios.txt","a+") as err:
         err.write("Vid: " + frameName + " Error Extracting Audio \n")
@@ -36,7 +43,7 @@ class GetDataset:
       data = Image.fromarray(imgarray) 
       data.save(self.PhotoFolder+"/"+frameName+".png")
       clip.close()
-    except:
+    except :
       clip.close()
       with open ("errorFrames.txt","a+") as err:
         err.write("Vid: " + frameName + " Error Extracting Frame \n")
@@ -91,7 +98,7 @@ class GetDataset:
       else:
            startpos=0
         
-      endpos=len(train_set)
+      endpos=self.Batch
       numberconverted=0
       startpos=0
       
@@ -110,10 +117,13 @@ class GetDataset:
         try:
             stdout.write("\n[+]Downloading video: %s" % video_ID)
             start_t_f = time.strftime("%H:%M:%S", time.gmtime(start_t))  #hh:mm:ss
-            end_t_f   = time.strftime("%H:%M:%S", time.gmtime(end_t))  #hh:mm:ss            
-            downloadstate=Youtube.downloadvideo(video_ID,start_t_f,end_t_f)
+            end_t_f   = time.strftime("%H:%M:%S", time.gmtime(end_t))  #hh:mm:ss        
+            duration = end_t -start_t
+            #print(duration)    
+            downloadstate=Youtube.downloadvideo(video_ID,start_t_f,duration)
             print(downloadstate)
-        except:
+        except Exception as e:
+            print(e)
             stdout.write("\r[!]Couldn't Download: %s" % video_ID)
             with open ('error.txt','a+') as err:
               err.write(video_ID + " Download Failed \n")
@@ -133,7 +143,8 @@ class GetDataset:
            self.extractAudio(vid_path)
            self.extractFrame(vid_path)
            stdout.write("\t[!]Video %s converted " % video_ID)
-        except:
+        except Exception as e:
+           print(e)
            stdout.write("\t[!]Video %s not found " % video_ID)
 
         try:   
@@ -173,20 +184,18 @@ class Youtube:
     except:
         return_msg = '{}, ERROR (youtube)!'.format(video_ID)
         return return_msg
-    
     try:
       (
         ffmpeg
-        .input(download_url, ss=start_t, to=end_t)
+        .input(download_url, ss=start_t, t=end_t)
         .output(outputfile, format='mp4', r=25, vcodec='libx264',crf=18, preset='veryfast', pix_fmt='yuv420p', acodec='aac', audio_bitrate=128000,strict='experimental')
         .global_args('-y')
-        .global_args('-loglevel', 'quiet')
-        .run()
+        .global_args('-loglevel', 'trace')
+        .run(capture_stdout=True, capture_stderr=True)
       )
     except:
         return_msg = '{}, ERROR (ffmpeg)!'.format(video_ID)
         return return_msg
-
 
     return '{}, DONE!'.format(video_ID)
     
@@ -194,11 +203,11 @@ class Youtube:
 #print(downloadvideo("307DK9nGQhw","00:01:30","00:01:33"))
 
                       
-# x= GetDataset()
-# x.setDatasetCSV("avspeech_train.csv")
-# x.setAudioOutputFolder("audios")
-# x.setPhotoOutputFolder("photos")
-# x.convertVideos()
-
+x= GetDataset()
+x.Batch=5
+x.setDatasetCSV("avspeech_train.csv")
+x.setAudioOutputFolder("audios")
+x.setPhotoOutputFolder("photos")
+x.convertVideos()
 
 
