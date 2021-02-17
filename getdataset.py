@@ -1,6 +1,4 @@
-!pip install youtube_dl
-!pip install ffmpeg-python 
-!pip install moviepy --upgrade
+
 
 import os
 from sys import stdout
