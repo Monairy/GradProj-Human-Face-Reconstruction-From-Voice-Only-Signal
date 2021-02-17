@@ -2,7 +2,7 @@
 
 # Dependencises
 image_align.py:
-!pip install cmake
+`!pip install cmake`
 !pip install mlxtend
 !pip install scikit-learn
 !pip install scipy
