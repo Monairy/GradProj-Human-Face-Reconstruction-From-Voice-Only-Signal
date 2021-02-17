@@ -1,6 +1,6 @@
 # GradProj-Human-Face-Reconstruction-From-Voice-Only-Signal  
 
-# Dependencises  
+# Dependencies  
 image_align.py:  
 `!pip install cmake`  
 `!pip install mlxtend`  
