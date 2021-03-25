@@ -115,7 +115,6 @@ for n in names:
     try:
         detect_faces(image)
     except Exception as m:
-        sys.__stdout__.write('Last image is: {}'.format(n) + '\n' + m + '\n')
         print(leftImages)
         sys.stdout.close()
         outWorkbook.close()
