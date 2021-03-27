@@ -142,3 +142,36 @@ for name, image in data.items():
 print(leftImages)
 sys.stdout.close()
 outWorkbook.close()
+
+'''
+# Get Google Drive links (run in Apps Script)
+
+function listFolderContents() {
+  var foldername = '02000';
+  var folderlisting = 'listing of folder ' + foldername;
+  
+  var folders = DriveApp.getFoldersByName(foldername)
+  if(folders.hasNext())
+  {
+    var folder = folders.next();
+    var contents = folder.getFiles();
+
+    var ss = SpreadsheetApp.create(folderlisting);
+    var sheet = ss.getActiveSheet();
+    sheet.appendRow(['name','link']);
+    
+    var file;
+    var name;
+    var link;
+    var row; 
+    while(contents.hasNext())
+    {
+      file = contents.next();
+      name = file.getName();
+      link = file.getId();
+      sheet.appendRow([name, link]);
+    }
+  }
+}
+
+'''
