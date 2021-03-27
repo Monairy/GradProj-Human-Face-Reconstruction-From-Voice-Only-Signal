@@ -20,7 +20,7 @@ def detect_faces(path):
     # Names of likelihood from google.cloud.vision.enums
     likelihood_name = ('UNKNOWN', 'VERY_UNLIKELY', 'UNLIKELY', 'POSSIBLE', 'LIKELY', 'VERY_LIKELY')
     flag = 0
-    # Iterating over faces in image (should only be executed once as there should only be one face in each image)
+    # Iterating over faces in image (will be executed only once as there should only be one face in each image)
     for face in faces:
         flag = 1
         d = face.detection_confidence
@@ -64,14 +64,30 @@ def detect_faces(path):
         vertices = (['({},{})'.format(vertex.x, vertex.y)
                     for vertex in face.bounding_poly.vertices])
         print('face bounds: {} \n'.format(','.join(vertices)))
+        break
 
     # A flag to mark finding at least one face; because some images are so distorted that no face can be detected
     if flag == 0:
         # Appending zero for distorted image; in order not to mess the list ordering
         leftImages.append('0')
-    
+        outSheet.write(i + 1, 2, 0)
+        outSheet.write(i + 1, 3, 99)
+        outSheet.write(i + 1, 4, 99)
+        outSheet.write(i + 1, 5, 99)
+        print('Detection confidence: 0')
+        print('anger: UNKNOWN')
+        print('joy: UNKNOWN')
+        print('surprise: UNKNOWN')
+        print('sorrow: UNKNOWN')
+        print('headwear: UNKNOWN')
+        print('blurred: UNKNOWN')
+        print('under exposed: UNKNOWN')
+        print('tilt angle: 99')
+        print('pan angle: 99')
+        print('roll angle: 99')
+
     outSheet.write(i + 1, 1, leftImages[i])
-    
+
     # Error Handling
     if response.error.message:
         raise Exception(
@@ -114,7 +130,7 @@ for n in names:
     # An exception handling block; because it keeps getting timeout error
     try:
         detect_faces(image)
-    except Exception as m:
+    except Exception:
         print(leftImages)
         sys.stdout.close()
         outWorkbook.close()
