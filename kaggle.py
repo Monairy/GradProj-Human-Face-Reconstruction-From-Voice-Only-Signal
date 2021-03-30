@@ -18,7 +18,7 @@ with open('/root/.kaggle/kaggle.json', 'w') as file:
 
 
 
-
+from shutil import copy
 def detect_faces(path):
     """Detects faces in an image."""
     from google.cloud import vision
@@ -96,9 +96,9 @@ def detect_faces(path):
         print('pan angle: 99')
         print('roll angle: 99')
 
-    if imageBool == 0:
-        p = path[29:].strip()
-        !kaggle datasets download niveditjain/human-faces-dataset -f {p}
+    if imageBool == 1:
+       copy(path, './')
+
         
     # Error Handling
     if response.error.message:
