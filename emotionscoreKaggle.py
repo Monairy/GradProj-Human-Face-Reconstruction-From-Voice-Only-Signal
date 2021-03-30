@@ -1,17 +1,3 @@
-!mkdir ~/.kaggle
-!touch ~/.kaggle/kaggle.json
-
-api_token = {"username":"guest5","key":"db3d7ebe8dbbb45f2caa63d43a6eb7cd"}
-
-import json
-
-with open('/root/.kaggle/kaggle.json', 'w') as file:
-    json.dump(api_token, file)
-
-!chmod 600 ~/.kaggle/kaggle.json
-
-
-
 import os, sys
 from shutil import copy
 sys.stdout = open('Output.txt', 'w')
@@ -22,7 +8,7 @@ def detect_faces(path):
     """Detects faces in an image."""
     from google.cloud import vision
     import io, os
-
+    
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "../input/apikey/Key.json"
 
     client = vision.ImageAnnotatorClient()
@@ -94,7 +80,7 @@ def detect_faces(path):
         print('tilt angle: 99')
         print('pan angle: 99')
         print('roll angle: 99')
-
+        
     if imageBool == 1:
         copy(path, './')
         
@@ -109,6 +95,21 @@ def detect_faces(path):
 
 
 
+!python3 -m pip install openpyxl
+
+
+
+
+
+from openpyxl import load_workbook
+
+# Change to the path of the directory containing the excel file
+wb = load_workbook("../input/testexcel/Output.xlsx")
+ws = wb['Sheet1']
+columnA = ws['A']
+# Getting the paths of the images
+done = [columnA[x].value for x in range(len(columnA))]
+    
 i = 0
 flag = 0
 for dirname, _, filenames in os.walk('../input/human-faces-dataset/r1/r1'):
@@ -117,12 +118,13 @@ for dirname, _, filenames in os.walk('../input/human-faces-dataset/r1/r1'):
         break
     for filename in filenames:
         i += 1
-        if i == 99:
+        if i == 7802:
             flag = 1
             break
         image = os.path.join(dirname, filename)
-        print(image)
-        detect_faces(image)
+        if image not in done:
+            print(image)
+            detect_faces(image)
 
 
 
