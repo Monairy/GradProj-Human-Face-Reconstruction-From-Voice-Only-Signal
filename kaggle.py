@@ -97,6 +97,7 @@ def detect_faces(path):
         print('roll angle: 99')
 
     if imageBool == 1:
+       print('downloading'+path)
        copy(path, './')
 
         
@@ -150,10 +151,6 @@ sys.stdout = open('Output.txt', 'w')
 
 
 
-
-
-i = 0
-flag = 0
 
 start=100 ##########edit this############
 end=start+500 ########edit this###########
