@@ -27,7 +27,7 @@ fullPath = []
 with open('Output.txt', 'r') as searchfile:
     for line in searchfile:
         if '../input/human-faces-dataset/' in line:
-            fullPath.append(line[29:].strip())
+            fullPath.append(line.strip())
         elif 'Detection confidence:' in line:
             d.append(float(line[21:].strip()))
         elif 'anger: ' in line:
