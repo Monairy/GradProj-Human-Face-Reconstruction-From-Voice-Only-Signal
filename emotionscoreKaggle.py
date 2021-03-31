@@ -94,7 +94,6 @@ def detect_faces(path):
 
 
 
-
 !python3 -m pip install openpyxl
 
 
@@ -104,12 +103,12 @@ def detect_faces(path):
 from openpyxl import load_workbook
 
 # Change to the path of the directory containing the excel file
-wb = load_workbook("../input/testexcel/Output.xlsx")
+wb = load_workbook('../input/exceloutput/Output.xlsx')
 ws = wb['Sheet1']
 columnA = ws['A']
 # Getting the paths of the images
 done = [columnA[x].value for x in range(len(columnA))]
-    
+   
 i = 0
 flag = 0
 for dirname, _, filenames in os.walk('../input/human-faces-dataset/r1/r1'):
@@ -124,77 +123,10 @@ for dirname, _, filenames in os.walk('../input/human-faces-dataset/r1/r1'):
         image = os.path.join(dirname, filename)
         if image not in done:
             print(image)
-            detect_faces(image)
-
-
-
-
-import xlsxwriter, itertools 
-d = []
-a = []
-j = []
-su = []
-so = []
-h = []
-b = []
-u = []
-t = []
-p = []
-r = []
-leftImages = []
-fullPath = [] 
-
-with open('./Output.txt', 'r') as searchfile:
-    for line in searchfile:
-        if '../input/human-faces-dataset/' in line:
-            fullPath.append(line.strip())
-        elif 'Detection confidence:' in line:
-            d.append(float(line[21:].strip()))
-        elif 'anger: ' in line:
-            a.append(line[7:].strip())
-        elif 'joy: ' in line:
-            j.append(line[5:].strip())
-        elif 'surprise: ' in line:
-            su.append(line[9:].strip())
-        elif 'sorrow: ' in line:
-            so.append(line[8:].strip())
-        elif 'headwear: ' in line:
-            h.append(line[10:].strip())
-        elif 'blurred: ' in line:
-            b.append(line[9:].strip())
-        elif 'under exposed: ' in line:
-            u.append(line[15:].strip())
-        elif 'tilt angle: ' in line:
-            t.append(float(line[12:].strip()))
-        elif 'pan angle: ' in line:
-            p.append(float(line[11:].strip()))
-        elif 'roll angle: ' in line:
-            r.append(float(line[12:].strip()))
-            
-            
-outWorkbook = xlsxwriter.Workbook('../input/exceloutput/Output.xlsx')
-outSheet = outWorkbook.get_worksheet_by_name('Sheet1')
-
-# Initialize i with the first empty row
-i = len(done)
-for i in range(len(fullPath)):
-    outSheet.write(i + 1, 0, fullPath[i])
-    outSheet.write(i + 1, 2, d[i])
-    outSheet.write(i + 1, 3, t[i])
-    outSheet.write(i + 1, 4, p[i])
-    outSheet.write(i + 1, 5, r[i])
-
-for (d, a, j, su, so, h, b, u, t, p, r) in itertools.zip_longest(d, a, j, su, so, h, b, u, t, p, r):
-    if d > 0.5 and a == 'VERY_UNLIKELY' and j == 'VERY_UNLIKELY' and su == 'VERY_UNLIKELY' and so == 'VERY_UNLIKELY' and h == 'VERY_UNLIKELY' and b == 'VERY_UNLIKELY' and u == 'VERY_UNLIKELY' and  t < 5 and t > -5 and p < 5 and p > -5 and r < 5 and r > -5:
-        leftImages.append('1')
-    else:
-        leftImages.append('0')
-j = 0
-for j in range(len(fullPath)):
-    outSheet.write(j + 1, 1, leftImages[j])
-outWorkbook.close()
-
-
+            try:
+                detect_faces(image)
+            except:
+                flag = 1
 
 
 #os.remove("/kaggle/working/Output.txt")
