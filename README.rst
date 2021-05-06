@@ -14,7 +14,7 @@ getdataset.py
 `!pip install moviepy --upgrade`  
 
 
-.. image:: https://github.com/ray-project/ray/raw/master/doc/source/images/ray_header_logo.png
+.. image:: https://raw.githubusercontent.com/Monairy/GradProj-Human-Face-Reconstruction-From-Voice-Only-Signal/main/assets/teaser_side.jpg
 
 .. image:: https://readthedocs.org/projects/ray/badge/?version=master
     :target: http://docs.ray.io/en/master/?badge=master
