@@ -35,15 +35,21 @@
 
 
 
-# GradProj-Human-Face-Reconstruction-From-Voice-Only-Signal  
+
+
+
+
+
+
+
 
 # Dependencies  
   
 
 getdataset.py  
-`!pip install youtube_dl`  
-`!pip install ffmpeg-python `  
-`!pip install moviepy --upgrade`  
+!pip install youtube_dl
+!pip install ffmpeg-python 
+!pip install moviepy --upgrade
 
 
 
@@ -64,13 +70,15 @@ image_align.py:
 To run this example, you will need to install the following:
 
 .. code-block:: bash
-
+  print(1)
 
 
 .. code-block:: python
+  print(1)
 
 
  
 .. code-block:: python
+  print(1)
 
     
