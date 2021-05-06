@@ -16,7 +16,7 @@
     :target: https://pypi.org/project/cmake/
     
     
-.. image:: https://img.shields.io/badge/Dependency-scikit-learn-blue
+.. image:: https://img.shields.io/badge/Dependency-scikit_learn-blue
     :target: https://pypi.org/project/ffmpeg/
     
 .. image:: https://img.shields.io/badge/Dependency-mlxtend-blue
