@@ -31,7 +31,7 @@
     :target: https://pypi.org/project/cmake/
     
 .. image:: https://img.shields.io/badge/Dependency-cv2-blue
-    :target: https://pypi.org/project/cmake
+    :target: https://pypi.org/project/cmake 
 
 
 
