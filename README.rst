@@ -1,12 +1,7 @@
 # GradProj-Human-Face-Reconstruction-From-Voice-Only-Signal  
 
 # Dependencies  
-image_align.py:  
-`!pip install cmake`  
-`!pip install mlxtend`  
-`!pip install scikit-learn`  
-`!pip install scipy`  
-`!pip install cv2`  
+  
 
 getdataset.py  
 `!pip install youtube_dl`  
@@ -26,19 +21,16 @@ getdataset.py
     :target: https://discuss.ray.io/
 
 |
-
-
-
-
-
-Quick Start
+Dependencies 
 -----------
-
-Execute Python functions in parallel.
+image_align.py:
 
 .. code-block:: python
-
-
+!pip install cmake
+!pip install mlxtend
+!pip install scikit-learn
+!pip install scipy
+!pip install cv2
 
 
 To run this example, you will need to install the following:
