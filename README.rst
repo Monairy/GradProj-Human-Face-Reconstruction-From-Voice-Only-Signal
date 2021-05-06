@@ -14,7 +14,7 @@ getdataset.py
 .. image:: https://readthedocs.org/projects/ray/badge/?version=master
     :target: http://docs.ray.io/en/master/?badge=master
 
-.. image:: https://img.shields.io/badge/Ray-Join%20Slack-blue
+.. image:: https://img.shields.io/badge/Dependencies-cmake-blue
     :target: https://forms.gle/9TSdDYUgxYs8SA9e8
 
 .. image:: https://img.shields.io/badge/Discuss-Ask%20Questions-blue
