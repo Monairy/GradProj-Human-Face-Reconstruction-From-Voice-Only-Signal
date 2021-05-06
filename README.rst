@@ -1,5 +1,5 @@
 
-.. image:: https://raw.githubusercontent.com/Monairy/GradProj-Human-Face-Reconstruction-From-Voice-Only-Signal/main/assets/header.png
+.. image:: https://raw.githubusercontent.com/Monairy/GradProj-Human-Face-Reconstruction-From-Voice-Only-Signal/main/assets/head.png
 
 .. image:: https://img.shields.io/badge/Docs-read-green
     :target: https://google.com
