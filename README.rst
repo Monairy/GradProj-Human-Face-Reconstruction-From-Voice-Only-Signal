@@ -3,10 +3,12 @@
 .. image:: https://readthedocs.org/projects/ray/badge/?version=master
     :target: http://docs.ray.io/en/master/?badge=master
 
-.. image:: https://img.shields.io/badge/Dependencies-pip%20install%20youtube_dl-blue
-    :target: https://pypi.org/project/cmake/
+.. image:: https://img.shields.io/badge/Dependency-pip%20install%20youtube_dl-blue
+    :target: https://pypi.org/project/youtube_dl/
+    
 .. image:: https://img.shields.io/badge/Dependencies-ffmpeg-python-blue
     :target: https://pypi.org/project/cmake/
+    
 .. image:: https://img.shields.io/badge/Dependencies-moviepy-blue
     :target: https://pypi.org/project/cmake/
     
