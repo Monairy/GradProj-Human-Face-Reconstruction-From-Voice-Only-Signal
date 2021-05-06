@@ -1,4 +1,3 @@
-.. image:: https://raw.githubusercontent.com/Monairy/GradProj-Human-Face-Reconstruction-From-Voice-Only-Signal/main/assets/teaser_side.jpg
 
 .. image:: https://img.shields.io/badge/Docs-read-green
     :target: https://google.com
@@ -32,6 +31,7 @@
 .. image:: https://img.shields.io/badge/Dependency-cv2-blue
     :target: https://pypi.org/project/cmake
 
+.. image:: https://raw.githubusercontent.com/Monairy/GradProj-Human-Face-Reconstruction-From-Voice-Only-Signal/main/assets/teaser_side.jpg
 
 
 # GradProj-Human-Face-Reconstruction-From-Voice-Only-Signal  
