@@ -3,18 +3,30 @@
 .. image:: https://readthedocs.org/projects/ray/badge/?version=master
     :target: http://docs.ray.io/en/master/?badge=master
 
-.. image:: https://img.shields.io/badge/Dependency-pip%20install%20youtube_dl-blue
+.. image:: https://img.shields.io/badge/Dependency-youtube_dl-blue
     :target: https://pypi.org/project/youtube_dl/
     
-.. image:: https://img.shields.io/badge/Dependencies-ffmpeg-python-blue
+.. image:: https://img.shields.io/badge/Dependency-ffmpeg-blue
+    :target: https://pypi.org/project/ffmpeg/
+    
+.. image:: https://img.shields.io/badge/Dependency-moviepy-blue
+    :target: https://pypi.org/project/moviepy/
+    
+.. image:: https://img.shields.io/badge/Dependency-cmake-blue
     :target: https://pypi.org/project/cmake/
     
-.. image:: https://img.shields.io/badge/Dependencies-moviepy-blue
+    
+.. image:: https://img.shields.io/badge/Dependency-scikit-learn-blue
+    :target: https://pypi.org/project/ffmpeg/
+    
+.. image:: https://img.shields.io/badge/Dependency-mlxtend-blue
+    :target: https://pypi.org/project/moviepy/
+    
+.. image:: https://img.shields.io/badge/Dependency-scipy-blue
     :target: https://pypi.org/project/cmake/
     
-.. image:: https://img.shields.io/badge/Dependencies-cmake-blue
-    :target: https://pypi.org/project/cmake/
-
+.. image:: https://img.shields.io/badge/Dependency-cv2-blue
+    :target: https://pypi.org/project/cmake
 
 
 
