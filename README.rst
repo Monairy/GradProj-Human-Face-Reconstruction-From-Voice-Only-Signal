@@ -34,14 +34,19 @@
     :target: https://pypi.org/project/cmake 
 
 
+.. code-block:: bash
+  print(1)
 
 
+.. code-block:: python
+  print(1)
 
 
-
-
-
-
+ 
+.. code-block:: python
+  print(1)
+  
+  
 
 # Dependencies  
   
@@ -69,16 +74,6 @@ image_align.py:
 
 To run this example, you will need to install the following:
 
-.. code-block:: bash
-  print(1)
 
-
-.. code-block:: python
-  print(1)
-
-
- 
-.. code-block:: python
-  print(1)
 
     
