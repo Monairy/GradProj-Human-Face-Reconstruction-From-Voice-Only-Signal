@@ -1,7 +1,11 @@
 .. image:: https://raw.githubusercontent.com/Monairy/GradProj-Human-Face-Reconstruction-From-Voice-Only-Signal/main/assets/teaser_side.jpg
 
-.. image:: https://readthedocs.org/projects/ray/badge/?version=master
-    :target: http://docs.ray.io/en/master/?badge=master
+.. image:: https://img.shields.io/badge/Docs-read-green
+    :target: https://google.com
+    
+.. image:: https://img.shields.io/badge/Deployment-live-green
+    :target: https://google.com
+        
 
 .. image:: https://img.shields.io/badge/Dependency-youtube_dl-blue
     :target: https://pypi.org/project/youtube_dl/
