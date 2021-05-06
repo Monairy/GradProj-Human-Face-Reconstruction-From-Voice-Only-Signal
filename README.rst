@@ -38,18 +38,22 @@
     print(1)
 
 
+Code Samples
+-----------
+
   
 .. code-block:: python
 
-    import ray
-    ray.init()
-
-    @ray.remote
-    def f(x):
-        return x * x
-
-    futures = [f.remote(i) for i in range(4)]
-    print(ray.get(futures))
+    import tensorflow as tf
+    def Audio_Encoder():
+    model = tf.keras.Sequential()
+    model.add(tf.keras.layers.Input(shape = (598,257,2)))
+    return model
+    
+    
+    
+    
+    
     
 # Dependencies  
   
@@ -59,23 +63,14 @@ getdataset.py
 !pip install ffmpeg-python 
 !pip install moviepy --upgrade
 
-
-
-
-|
-Dependencies 
------------
 image_align.py:
 
-.. code-block:: python
 !pip install cmake
 !pip install mlxtend
 !pip install scikit-learn
 !pip install scipy
 !pip install cv2
 
-
-To run this example, you will need to install the following:
 
 
 
